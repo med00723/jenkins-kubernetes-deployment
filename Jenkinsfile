@@ -1,7 +1,7 @@
 pipeline {
 
   environment {
-    dockerimagename = "med00723/projet"
+    dockerimagename = "med00723/images"
     dockerImage = ""
   }
 
@@ -11,7 +11,7 @@ pipeline {
 
     stage('Checkout Source') {
       steps {
-        git 'https://github.com/med00723/jenkins-kubernetes-deployment.gitt'
+        git 'https://github.com/med00723/jenkins-kubernetes-deployment.git'
       }
     }
 
@@ -36,13 +36,7 @@ pipeline {
       }
     }
 
-    stage('Deploying App to Kubernetes') {
-      steps {
-        script {
-          kubernetesDeploy(configs: "deployment.yaml", "service.yaml")
-        }
-      }
-    }
+  
 
   }
 
